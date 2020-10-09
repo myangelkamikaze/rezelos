@@ -13,18 +13,35 @@ else
 <DxDataGrid Data="@characters"
             CssClass="mw-1100"
             ShowPager=false
-            PageSize=999>
+            PageSize=999
+            HtmlDataCellDecoration="@OnHtmlDataCellDecoration">
+    <!--
     <DxDataGridColumn Field="@nameof(Character.Version)" />
     <DxDataGridColumn Field="@nameof(Character.Name)" />
-    <DxDataGridColumn Field="@nameof(Character.Color)" />
-    <DxDataGridColumn Field="@nameof(Character.Tier)" />
-    <DxDataGridColumn Field="@nameof(Character.ArenaTier)" Caption="Arena" />
+    -->
+    <DxDataGridColumn Caption="Character" AllowSort="false">
+        <DisplayTemplate>@CharacterImage(context as Character)</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.Color)">
+        <DisplayTemplate>@ColorImage((context as Character)?.Color)</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.Tier)">
+        <DisplayTemplate>@TierImage((context as Character)?.Tier)</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.ArenaTier)" Caption="Arena">
+        <DisplayTemplate>@TierImage((context as Character)?.ArenaTier)</DisplayTemplate>
+    </DxDataGridColumn>
     <DxDataGridColumn Field="@nameof(Character.LeaderRating)" Caption="Leader" />
     <DxDataGridColumn Field="@nameof(Character.MemberRating)" Caption="Member" />
     <DxDataGridColumn Field="@nameof(Character.HP)" />
     <DxDataGridColumn Field="@nameof(Character.Attack)" />
     <DxDataGridColumn Field="@nameof(Character.Defense)" />
     <DxDataGridColumn Field="@nameof(Character.Speed)" />
+
+    <DxDataGridColumn Field="@nameof(Character.CriticalRate)" />
+    <DxDataGridColumn Field="@nameof(Character.CriticalDamage)" />
+    <DxDataGridColumn Field="@nameof(Character.DebuffSuccess)" />
+    <DxDataGridColumn Field="@nameof(Character.DebuffResistance)" />
 </DxDataGrid>
 }
 
@@ -34,5 +51,38 @@ else
     protected override async Task OnInitializedAsync()
     {
         characters = CharacterService.GetCharacters();
+    }
+
+    public RenderFragment TierImage(Tier? tier) => tier switch
+    {
+        Tier.SS =>@<img class="rankImage" src="/img/rank_ss.png" />,
+        Tier.S => @<img class="rankImage" src="/img/rank_s.png" />,
+        Tier.A => @<img class="rankImage" src="/img/rank_a.png" />,
+        Tier.B => @<img class="rankImage" src="/img/rank_b.png" />,
+        _ => @<img class="rankImage" />,
+    };
+
+    public RenderFragment ColorImage(Color? color) => color switch
+    {
+        Color.Yellow => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_yellow.png" />,
+        Color.Purple => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_purple.png" />,
+        Color.Red => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_red.png" />,
+        Color.Green => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_green.png" />,
+        Color.Blue => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_blue.png" />,
+        _ => @<img class="rankImage" />,
+    };
+
+    public RenderFragment CharacterImage(Character? character)
+    {
+        if (character == null) return @<img class="characterImage" />;
+
+        string src = $"/img/{character.Version}{character.Name}.png";
+
+        return @<img class="characterImage" src="@src" />;
+    }
+
+    void OnHtmlDataCellDecoration(DataGridHtmlDataCellDecorationEventArgs<Character> eventArgs)
+    {
+        eventArgs.Style += "vertical-align: middle; text-align: center !important;";
     }
 }

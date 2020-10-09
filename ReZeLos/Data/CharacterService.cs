@@ -69,7 +69,7 @@ namespace ReZeLos.Data
                 {
                     Version = "[月夜の舞風]",
                     Name = "ラム",
-                    Color = Color.Green,
+                    Color = Color.Red,
                     Tier = Tier.S,
                     ArenaTier = Tier.A,
                     LeaderRating = 7.5,
@@ -249,7 +249,7 @@ namespace ReZeLos.Data
                 {
                     Version = "[治癒術士の矜持]",
                     Name = "フェリス",
-                    Color = Color.Blue,
+                    Color = Color.Green,
                     Tier = Tier.A,
                     ArenaTier = Tier.S,
                     LeaderRating = 7.5,
@@ -357,7 +357,7 @@ namespace ReZeLos.Data
                 {
                     Version = "[小悪魔の本気]",
                     Name = "フェリス",
-                    Color = Color.Green,
+                    Color = Color.Blue,
                     Tier = Tier.A,
                     ArenaTier = Tier.A,
                     LeaderRating = 8,

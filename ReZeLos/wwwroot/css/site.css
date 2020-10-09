@@ -48,3 +48,28 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+
+
+.characterImage {
+    height: 64px;
+    width: 64px;
+}
+
+.rankImage {
+    height: 32px;
+    width: 32px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    vertical-align: middle;
+}
+
+td img {
+    display: block;
+    margin: auto;
+}
