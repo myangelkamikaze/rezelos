@@ -10,38 +10,22 @@
 }
 else
 {
-    <DxDataGrid Data="@characters"
-                CssClass="mw-1100"
-                ShowPager=false
-                PageSize=999>
-        <DxDataGridColumn Field="@nameof(Character.Version)"
-                          Caption="Version"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Name)"
-                          Caption="Name"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Color)"
-                          Caption="Color"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Tier)"
-                          Caption="Tier"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.ArenaTier)"
-                          Caption="Arena"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.HP)"
-                          Caption="HP"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Attack)"
-                          Caption="Attack"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Defense)"
-                          Caption="Defense"
-                          Width="auto" />
-        <DxDataGridColumn Field="@nameof(Character.Speed)"
-                          Caption="Speed"
-                          Width="auto" />
-    </DxDataGrid>
+<DxDataGrid Data="@characters"
+            CssClass="mw-1100"
+            ShowPager=false
+            PageSize=999>
+    <DxDataGridColumn Field="@nameof(Character.Version)" />
+    <DxDataGridColumn Field="@nameof(Character.Name)" />
+    <DxDataGridColumn Field="@nameof(Character.Color)" />
+    <DxDataGridColumn Field="@nameof(Character.Tier)" />
+    <DxDataGridColumn Field="@nameof(Character.ArenaTier)" Caption="Arena" />
+    <DxDataGridColumn Field="@nameof(Character.LeaderRating)" Caption="Leader" />
+    <DxDataGridColumn Field="@nameof(Character.MemberRating)" Caption="Member" />
+    <DxDataGridColumn Field="@nameof(Character.HP)" />
+    <DxDataGridColumn Field="@nameof(Character.Attack)" />
+    <DxDataGridColumn Field="@nameof(Character.Defense)" />
+    <DxDataGridColumn Field="@nameof(Character.Speed)" />
+</DxDataGrid>
 }
 
 @code {
