@@ -1,0 +1,54 @@
+﻿@page "/"
+
+@using ReZeLos.Data
+@inject CharacterService CharacterService
+@using DevExpress.Blazor
+
+@if (characters == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <DxDataGrid Data="@characters"
+                CssClass="mw-1100"
+                ShowPager=false
+                PageSize=999>
+        <DxDataGridColumn Field="@nameof(Character.Version)"
+                          Caption="Version"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Name)"
+                          Caption="Name"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Color)"
+                          Caption="Color"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Tier)"
+                          Caption="Tier"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.ArenaTier)"
+                          Caption="Arena"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.HP)"
+                          Caption="HP"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Attack)"
+                          Caption="Attack"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Defense)"
+                          Caption="Defense"
+                          Width="auto" />
+        <DxDataGridColumn Field="@nameof(Character.Speed)"
+                          Caption="Speed"
+                          Width="auto" />
+    </DxDataGrid>
+}
+
+@code {
+    private List<Character> characters;
+
+    protected override async Task OnInitializedAsync()
+    {
+        characters = CharacterService.GetCharacters();
+    }
+}
