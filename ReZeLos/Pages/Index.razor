@@ -38,10 +38,18 @@ else
     <DxDataGridColumn Field="@nameof(Character.Defense)" />
     <DxDataGridColumn Field="@nameof(Character.Speed)" />
 
-    <DxDataGridColumn Field="@nameof(Character.CriticalRate)" />
-    <DxDataGridColumn Field="@nameof(Character.CriticalDamage)" />
-    <DxDataGridColumn Field="@nameof(Character.DebuffSuccess)" />
-    <DxDataGridColumn Field="@nameof(Character.DebuffResistance)" />
+    <DxDataGridColumn Field="@nameof(Character.CriticalRate)">
+        <DisplayTemplate>@($"{(context as Character)?.CriticalRate}%")</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.CriticalDamage)">
+        <DisplayTemplate>@($"{(context as Character)?.CriticalDamage}%")</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.DebuffSuccess)">
+        <DisplayTemplate>@($"{(context as Character)?.DebuffSuccess}%")</DisplayTemplate>
+    </DxDataGridColumn>
+    <DxDataGridColumn Field="@nameof(Character.DebuffResistance)">
+        <DisplayTemplate>@($"{(context as Character)?.DebuffResistance}%")</DisplayTemplate>
+    </DxDataGridColumn>
 </DxDataGrid>
 }
 
