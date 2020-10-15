@@ -61,23 +61,23 @@ else
         characters = CharacterService.GetCharacters();
     }
 
-    public RenderFragment TierImage(Tier? tier) => tier switch
+    public RenderFragment? TierImage(Tier? tier) => tier switch
     {
         Tier.SS =>@<img class="rankImage" src="/img/rank_ss.png" />,
         Tier.S => @<img class="rankImage" src="/img/rank_s.png" />,
         Tier.A => @<img class="rankImage" src="/img/rank_a.png" />,
         Tier.B => @<img class="rankImage" src="/img/rank_b.png" />,
-        _ => @<img class="rankImage" />,
+        _ => null,
     };
 
-    public RenderFragment ColorImage(Color? color) => color switch
+    public RenderFragment? ColorImage(Color? color) => color switch
     {
         Color.Yellow => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_yellow.png" />,
         Color.Purple => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_purple.png" />,
         Color.Red => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_red.png" />,
         Color.Green => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_green.png" />,
         Color.Blue => @<img class="rankImage" src="/img/article_tools_rezelos_gacha_blue.png" />,
-        _ => @<img class="rankImage" />,
+        _ => null,
     };
 
     public RenderFragment CharacterImage(Character? character)
