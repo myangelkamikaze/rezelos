@@ -229,6 +229,24 @@ namespace ReZeLos.Data
                 },
                 new ()
                 {
+                    Version = "[お気に入りの仮装]",
+                    Name = "ベアトリス",
+                    Color = Color.Purple,
+                    Tier = Tier.S,
+                    ArenaTier = Tier.Unknown,
+                    LeaderRating = 9,
+                    MemberRating = 9.5,
+                    HP = 12631,
+                    Attack = 1080,
+                    Defense = 1176,
+                    Speed = 170,
+                    CriticalRate = 50,
+                    CriticalDamage = 120,
+                    DebuffSuccess = 20,
+                    DebuffResistance = 35,
+                },
+                new ()
+                {
                     Version = "[寝間着の天使]",
                     Name = "エミリア",
                     Color = Color.Green,
@@ -370,6 +388,26 @@ namespace ReZeLos.Data
                     CriticalDamage = 120,
                     DebuffSuccess = 20,
                     DebuffResistance = 45,
+                },
+                new ()
+                {
+                    Version = "[月夜の吸血鬼]",
+                    Name = "ロズワール",
+                    Color = Color.Blue,
+                    Tier = Tier.A,
+                    ArenaTier = Tier.Unknown,
+                    LeaderRating = 8,
+                    MemberRating = 8.5,
+                    /*
+                    HP = 16240,
+                    Attack = 982,
+                    Defense = 1086,
+                    Speed = 155,
+                    CriticalRate = 50,
+                    CriticalDamage = 120,
+                    DebuffSuccess = 20,
+                    DebuffResistance = 45,
+                    */
                 },
                 new ()
                 {
